@@ -6,13 +6,24 @@ class Africastalking extends AfricasTalkingGateway
 {
     private $CI;            //incase we may need to use the Codeigniter Instance
     private $config;
+    private $alt_config;
     
     public function __construct()
     {
-        $this->CI = & get_instance();        
-        $this->CI->load->config('africastalking', TRUE);
-        $this->config = $this->CI->config->item('africastalking');
-        parent::__construct($this->config['username'], $this->config['apiKey']);
+        $this->CI = & get_instance();
+        /*$this->CI->load->config('africastalking', TRUE);*/
+        $this->CI->load->model('smssettings_m', TRUE);
+        $astalking_bind = array();
+        $get_astalkings = $this->CI->smssettings_m->get_order_by_astalking();
+        foreach ($get_astalkings as $key => $get_astalking) {
+            $astalking_bind[$get_astalking->field_names] = $get_astalking->field_values;
+        }
+        parent::__construct($astalking_bind['astalking_username'],$astalking_bind['astalking_password']);
+
+        /*$this->config = $this->CI->config->item('africastalking');
+        parent::__construct($this->config['username'], $this->config['apiKey']);*/
+
+
     }
     
     public function send_sms($recipients_, $message_)

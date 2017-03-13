@@ -396,13 +396,14 @@
                                                 
                                                 <?php
                                                     $array = array(
+                                                        'astalking' => $this->lang->line('mailandsms_astalking'),
                                                         'select' => $this->lang->line('mailandsms_select_send_by'),
                                                         'clickatell' => $this->lang->line('mailandsms_clickatell'),
                                                         'twilio' => $this->lang->line('mailandsms_twilio'),
-                                                        'astalking' => $this->lang->line('mailandsms_astalking'),
                                                         'msg91' => $this->lang->line('mailandsms_msg91'),
+//                                                        set_value("sms_getway")
                                                     );
-                                                    echo form_dropdown("sms_getway", $array, set_value("sms_getway"), "id='sms_getway' class='form-control select2'");
+                                                    echo form_dropdown("sms_getway", $array, array("mailandsms_astalking"), "id='sms_getway' name='sms_gate' class='form-control select2'");
                                                 ?>
                                                 
                                             </div>
@@ -471,6 +472,8 @@
         $('#divemail_class').hide();
         $('#divemail_schoolyear').hide();
         $('#email_message').jqte();
+
+
 
 
         var usertypeID = "<?=$setEmailUserTypeID?>";
@@ -600,8 +603,10 @@
 
         /* Start For Sms */
 
+
         $('#divsms_class').hide();
         $('#divsms_schoolyear').hide();
+
 
         var usertypeID = "<?=$setSMSUserTypeID?>";
         if(usertypeID != 'select') {

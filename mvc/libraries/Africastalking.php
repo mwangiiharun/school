@@ -11,7 +11,7 @@ class Africastalking extends AfricasTalkingGateway
     {
         $this->CI = & get_instance();        
         $this->CI->load->config('africastalking', TRUE);
-        $this->load->model('smssettings_m');
+        #$this->load->model('smssettings_m');
         $this->config = $this->CI->config->item('africastalking');
         
         parent::__construct($this->config['username'], $this->config['apiKey']);

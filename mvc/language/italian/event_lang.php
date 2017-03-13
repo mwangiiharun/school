@@ -1,0 +1,36 @@
+<?php
+
+$lang['panel_title'] = "Evento";
+$lang['add_title'] = "Aggiungere Un Evento";
+$lang['slno'] = "#";
+$lang['event_title'] = "Titolo";
+$lang['event_details'] = "Dettagli";
+$lang['event_header'] = "Dettagli Dell'evento";
+$lang['event_date'] = "Data";
+$lang['event_fdate'] = "Da Data";
+$lang['event_tdate'] = "Ad Oggi";
+$lang['event_photo'] = "Foto";
+$lang['event_name'] = "Nome";
+$lang['event_user'] = "Utente";
+$lang['action'] = "Azione";
+$lang['event_clear'] = "Chiaro";
+$lang['event_file_browse'] = "File Browse";
+$lang['view'] = "Vista";
+$lang['edit'] = "Modifica";
+$lang['delete'] = "Elimina";
+$lang['print'] = "Stampare";
+$lang['pdf_preview'] = "Pdf Preview";
+$lang["mail"] = "Invia Pdf A Mail";
+$lang['going'] = "Andando";
+$lang['ignore'] = "Ignorare";
+$lang['add_class'] = "Aggiungi Evento";
+$lang['update_class'] = "Aggiornamento Event";
+$lang['to'] = "A";
+$lang['subject'] = "Soggetto";
+$lang['message'] = "Messaggio";
+$lang['send'] = "Inviare";
+$lang['mail_to'] = "È Necessario Il Campo A.";
+$lang['mail_valid'] = "Il Campo A Deve Contenere Un Indirizzo Email Valido.";
+$lang['mail_subject'] = "È Necessario Il Campo Oggetto.";
+$lang['mail_success'] = "Invia Con Successo!";
+$lang['mail_error'] = "Ops! E-mail Non Inviare!";

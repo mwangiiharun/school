@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "Urlaub";
+$lang['add_title'] = "Fügen Sie Einen Urlaub Hinzu";
+$lang['slno'] = "Aufrechtzuerhalten.";
+$lang['holiday_title'] = "Titel";
+$lang['holiday_details'] = "Einzelheiten";
+$lang['holiday_date'] = "Datum";
+$lang['holiday_fdate'] = "Ab Datum";
+$lang['holiday_tdate'] = "Miteinander Ausgehen";
+$lang['holiday_photo'] = "Foto";
+$lang['action'] = "Aktion";
+$lang['holiday_file_browse'] = "Datei Durchsuchen";
+$lang['holiday_clear'] = "Klar";
+$lang['holiday_header'] = "Urlaubsdetails";
+$lang['view'] = "Aussicht";
+$lang['edit'] = "Bearbeiten";
+$lang['delete'] = "Löschen";
+$lang['print'] = "Drucken";
+$lang['pdf_preview'] = "Pdf Vorschau";
+$lang["mail"] = "Sende Pdf An Mail";
+$lang['add_class'] = "Fügen Sie Urlaub Hinzu";
+$lang['update_class'] = "Aktualisieren Urlaub";
+$lang['to'] = "Nach";
+$lang['subject'] = "Fach";
+$lang['message'] = "Nachricht";
+$lang['send'] = "Senden";
+$lang['mail_to'] = "Das Feld An Ist Erforderlich.";
+$lang['mail_valid'] = "Das Feld An Muss Eine Gültige E-mail-adresse Enthalten.";
+$lang['mail_subject'] = "Das Feld Betreff Ist Erforderlich.";
+$lang['mail_success'] = "Email Erfolgreich Senden!";
+$lang['mail_error'] = "Oops! Email Nicht Senden!";

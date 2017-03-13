@@ -1,0 +1,30 @@
+<?php
+
+$lang['panel_title'] = "امتحان الحضور";
+$lang['add_title'] = "إضافة الحضور الامتحان";
+$lang['slno'] = "#";
+$lang['eattendance_photo'] = "صورة فوتوغرافية";
+$lang['eattendance_name'] = "اسم";
+$lang['eattendance_email'] = "البريد الإلكتروني";
+$lang['eattendance_roll'] = "تدحرج";
+$lang['eattendance_phone'] = "هاتف";
+$lang['eattendance_attendance'] = "الحضور";
+$lang['eattendance_section'] = "الجزء";
+$lang['eattendance_exam'] = "امتحان";
+$lang['eattendance_classes'] = "صف دراسي";
+$lang['eattendance_subject'] = "موضوع";
+$lang['eattendance_status'] = "الحالة";
+$lang['eattendance_student'] = "طالب علم";
+$lang['eattendance_all_students'] = "كل الطلاب";
+$lang['eattendance_present'] = "حاضر";
+$lang['eattendance_absent'] = "غائب";
+$lang['eattendance_details'] = "تفاصيل امتحان الحضور";
+$lang['eattendance_select_exam'] = "حدد الامتحان";
+$lang['eattendance_select_classes'] = "حدد فئة";
+$lang['eattendance_select_subject'] = "حدد الموضوع";
+$lang['eattendance_select_section'] = "حدد القسم";
+$lang['eattendance_select_student'] = "حدد الطلاب";
+$lang['action'] = "عمل";
+$lang['add_attendance'] = "الحضور";
+$lang['add_all_attendance'] = "إضافة جميع الحضور";
+$lang['view_attendance'] = "عرض الحضور";

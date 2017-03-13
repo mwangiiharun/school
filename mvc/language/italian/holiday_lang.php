@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "Vacanza";
+$lang['add_title'] = "Aggiungere Una Vacanza";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "Titolo";
+$lang['holiday_details'] = "Dettagli";
+$lang['holiday_date'] = "Data";
+$lang['holiday_fdate'] = "Da Data";
+$lang['holiday_tdate'] = "Ad Oggi";
+$lang['holiday_photo'] = "Foto";
+$lang['action'] = "Azione";
+$lang['holiday_file_browse'] = "File Browse";
+$lang['holiday_clear'] = "Chiaro";
+$lang['holiday_header'] = "Dettagli Per Le Vacanze";
+$lang['view'] = "Vista";
+$lang['edit'] = "Modifica";
+$lang['delete'] = "Elimina";
+$lang['print'] = "Stampare";
+$lang['pdf_preview'] = "Pdf Preview";
+$lang["mail"] = "Invia Pdf A Mail";
+$lang['add_class'] = "Aggiungere Le Vacanze";
+$lang['update_class'] = "Aggiornamento Per Le Vacanze";
+$lang['to'] = "A";
+$lang['subject'] = "Soggetto";
+$lang['message'] = "Messaggio";
+$lang['send'] = "Inviare";
+$lang['mail_to'] = "È Necessario Il Campo A.";
+$lang['mail_valid'] = "Il Campo A Deve Contenere Un Indirizzo Email Valido.";
+$lang['mail_subject'] = "È Necessario Il Campo Oggetto.";
+$lang['mail_success'] = "Invia Con Successo!";
+$lang['mail_error'] = "Ops! E-mail Non Inviare!";

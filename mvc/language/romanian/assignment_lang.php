@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "Misiune";
+$lang['add_title'] = "Adăuga O Misiune";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "Clasă";
+$lang['assignment_title'] = "Titlu";
+$lang['assignment_description'] = "Descriere";
+$lang['assignment_deadlinedate'] = "Termen Limita";
+$lang['assignment_uploder'] = "Uploader";
+$lang['assignment_student'] = "Student";
+$lang['assignment_roll'] = "Sul";
+$lang['assignment_submission'] = "Data Depunerii";
+$lang['assignment_section'] = "Secțiune";
+$lang['assignment_subject'] = "Subiect";
+$lang['assignment_select_classes'] = "Selectați Class";
+$lang['assignment_select_student'] = "Selectați Student";
+$lang['assignment_select_section'] = "Selectați Secțiunea";
+$lang['assignment_select_subject'] = "Selectați Subiect";
+$lang['assignment_file'] = "Fişier";
+$lang['assignment_file_browse'] = "Fișier Răsfoiți";
+$lang['assignment_clear'] = "Clar";
+$lang['assignment_ans'] = "Răspuns";
+$lang['add_syllabus_ans'] = "Adauga O Răspuns";
+$lang['assignment_ans_list'] = "Răspuns Lista";
+$lang['action'] = "Acțiune";
+$lang['download'] = "Descarca";
+$lang['view'] = "Vedere";
+$lang['edit'] = "Editați | ×";
+$lang['delete'] = "Șterge";
+$lang['upload'] = "Încărcați";
+$lang['add_syllabus'] = "Add Programă";
+$lang['update_syllabus'] = "Programa De Actualizare";

@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "Vacanţă";
+$lang['add_title'] = "Adauga O Vacanta";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "Titlu";
+$lang['holiday_details'] = "Detalii";
+$lang['holiday_date'] = "Data";
+$lang['holiday_fdate'] = "Din Data";
+$lang['holiday_tdate'] = "La Zi";
+$lang['holiday_photo'] = "Fotografie";
+$lang['action'] = "Acțiune";
+$lang['holiday_file_browse'] = "Fișier Răsfoiți";
+$lang['holiday_clear'] = "Clar";
+$lang['holiday_header'] = "Detalii De Vacanță";
+$lang['view'] = "Vedere";
+$lang['edit'] = "Editați | ×";
+$lang['delete'] = "Șterge";
+$lang['print'] = "Imprimare";
+$lang['pdf_preview'] = "Pdf Anunț";
+$lang["mail"] = "Trimite-pdf To Mail";
+$lang['add_class'] = "Adauga O Vacanță";
+$lang['update_class'] = "Actualizare De Vacanță";
+$lang['to'] = "La";
+$lang['subject'] = "Subiect";
+$lang['message'] = "Mesaj";
+$lang['send'] = "Trimite";
+$lang['mail_to'] = "Este Necesar Câmpul To.";
+$lang['mail_valid'] = "Câmpul Pentru Trebuie Să Conțină O Adresă De E-mail Validă.";
+$lang['mail_subject'] = "Este Nevoie De Câmpul Subiect.";
+$lang['mail_success'] = "E-mail A Trimite Cu Succes!";
+$lang['mail_error'] = "Hopa! E-mail Nu Se Pot Trimite!";

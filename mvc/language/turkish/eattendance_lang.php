@@ -1,0 +1,30 @@
+<?php
+
+$lang['panel_title'] = "Sınav Seyirci Sayısı";
+$lang['add_title'] = "Sınav Katılımını Ekle";
+$lang['slno'] = "#";
+$lang['eattendance_photo'] = "Fotoğraf";
+$lang['eattendance_name'] = "İsim";
+$lang['eattendance_email'] = "E-posta";
+$lang['eattendance_roll'] = "Rulo";
+$lang['eattendance_phone'] = "Telefon";
+$lang['eattendance_attendance'] = "Seyirci";
+$lang['eattendance_section'] = "Bölüm";
+$lang['eattendance_exam'] = "Sınav";
+$lang['eattendance_classes'] = "Sınıf";
+$lang['eattendance_subject'] = "Konu";
+$lang['eattendance_status'] = "Durum";
+$lang['eattendance_student'] = "Öğrenci";
+$lang['eattendance_all_students'] = "Tüm öğrenciler";
+$lang['eattendance_present'] = "Mevcut";
+$lang['eattendance_absent'] = "Yok";
+$lang['eattendance_details'] = "Sınav Seyirci Bilgileri";
+$lang['eattendance_select_exam'] = "Sınavı Seç";
+$lang['eattendance_select_classes'] = "Sınıfı Seç";
+$lang['eattendance_select_subject'] = "Konu Seçiniz";
+$lang['eattendance_select_section'] = "Bölüm Seç";
+$lang['eattendance_select_student'] = "Öğrenciyi Seç";
+$lang['action'] = "Aksiyon";
+$lang['add_attendance'] = "Seyirci";
+$lang['add_all_attendance'] = "Tüm Seyirci Ekle";
+$lang['view_attendance'] = "Devamını Görüntüle";

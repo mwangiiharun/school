@@ -1,0 +1,29 @@
+<?php
+
+$lang['panel_title'] = "Konu";
+$lang['add_title'] = "Bir Konu Eklemek";
+$lang['slno'] = "#";
+$lang['subject_class_name'] = "Sınıf Adı";
+$lang['subject_teacher_name'] = "Öğretmen Adı";
+$lang['subject_student'] = "Öğrenci";
+$lang['subject_name'] = "Konu Adı";
+$lang['subject_author'] = "Konu Yazar";
+$lang['subject_code'] = "Konu Kodu";
+$lang['subject_teacher'] = "Öğretmen";
+$lang['subject_classes'] = "Sınıf";
+$lang['subject_type'] = "Tip";
+$lang['subject_optional'] = "İsteğe Bağlı";
+$lang['subject_mandatory'] = "Zorunlu";
+$lang['subject_passmark'] = "Geçme Notu";
+$lang['subject_finalmark'] = "Nihai Mark";
+$lang['subject_select_class'] = "Sınıfı Seç";
+$lang['subject_select_type'] = "Tür Seç";
+$lang['subject_select_classes'] = "Sınıfı Seç";
+$lang['subject_select_teacher'] = "Öğretmen Seç";
+$lang['subject_select_student'] = "Öğrenciyi Seç";
+$lang['action'] = "Aksiyon";
+$lang['view'] = "Görünüm";
+$lang['edit'] = "Düzenle";
+$lang['delete'] = "Sil";
+$lang['add_subject'] = "Konu Ekle";
+$lang['update_subject'] = "Konuyu Güncelle";

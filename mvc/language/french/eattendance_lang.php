@@ -1,0 +1,30 @@
+<?php
+
+$lang['panel_title'] = "Examen De Présence";
+$lang['add_title'] = "Ajouter La Participation Aux Examens";
+$lang['slno'] = "#";
+$lang['eattendance_photo'] = "Photo";
+$lang['eattendance_name'] = "Prénom";
+$lang['eattendance_email'] = "Email";
+$lang['eattendance_roll'] = "Rouleau";
+$lang['eattendance_phone'] = "Téléphone";
+$lang['eattendance_attendance'] = "Présence";
+$lang['eattendance_section'] = "Section";
+$lang['eattendance_exam'] = "Examen";
+$lang['eattendance_classes'] = "Classe";
+$lang['eattendance_subject'] = "Assujettir";
+$lang['eattendance_status'] = "Statut";
+$lang['eattendance_student'] = "Étudiant";
+$lang['eattendance_all_students'] = "Tous Les étudiants";
+$lang['eattendance_present'] = "Présent";
+$lang['eattendance_absent'] = "Absent";
+$lang['eattendance_details'] = "Détails De L'examen";
+$lang['eattendance_select_exam'] = "Sélectionner L'examen";
+$lang['eattendance_select_classes'] = "Sélectionner La Classe";
+$lang['eattendance_select_subject'] = "Sélectionner Un Sujet";
+$lang['eattendance_select_section'] = "Sélectionner La Section";
+$lang['eattendance_select_student'] = "Sélectionner Un élève";
+$lang['action'] = "Action";
+$lang['add_attendance'] = "Présence";
+$lang['add_all_attendance'] = "Ajouter Tous Les Participants";
+$lang['view_attendance'] = "Afficher La Participation";

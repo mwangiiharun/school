@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "Tarefa";
+$lang['add_title'] = "Adicionar Uma Atribuição";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "Classe";
+$lang['assignment_title'] = "Título";
+$lang['assignment_description'] = "Descrição";
+$lang['assignment_deadlinedate'] = "Data Limite";
+$lang['assignment_uploder'] = "Uploader";
+$lang['assignment_student'] = "Aluna";
+$lang['assignment_roll'] = "Lista";
+$lang['assignment_submission'] = "Data De Submissão";
+$lang['assignment_section'] = "Seção";
+$lang['assignment_subject'] = "Sujeito";
+$lang['assignment_select_classes'] = "Selecionar Classe";
+$lang['assignment_select_student'] = "Selecione Estudante";
+$lang['assignment_select_section'] = "Selecionar Seção";
+$lang['assignment_select_subject'] = "Selecionar Assunto";
+$lang['assignment_file'] = "Arquivo";
+$lang['assignment_file_browse'] = "Arquivo Procurar";
+$lang['assignment_clear'] = "Claro";
+$lang['assignment_ans'] = "Responda";
+$lang['add_syllabus_ans'] = "Adicionar Resposta";
+$lang['assignment_ans_list'] = "Lista De Respostas";
+$lang['action'] = "Açao";
+$lang['download'] = "Transferir";
+$lang['view'] = "Visão";
+$lang['edit'] = "Editar";
+$lang['delete'] = "Excluir";
+$lang['upload'] = "Envio";
+$lang['add_syllabus'] = "Adicionar Um Plano De Estudos";
+$lang['update_syllabus'] = "Atualizar O Programa";

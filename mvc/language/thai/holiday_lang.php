@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "วันหยุด";
+$lang['add_title'] = "เพิ่มวันหยุด";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "หัวข้อ";
+$lang['holiday_details'] = "รายละเอียด";
+$lang['holiday_date'] = "วันที่";
+$lang['holiday_fdate'] = "จากวันที่";
+$lang['holiday_tdate'] = "ถึงวันที่";
+$lang['holiday_photo'] = "ภาพถ่าย";
+$lang['action'] = "การกระทำ";
+$lang['holiday_file_browse'] = "ยื่นเรียกดู";
+$lang['holiday_clear'] = "ชัดเจน";
+$lang['holiday_header'] = "รายละเอียดวันหยุด";
+$lang['view'] = "ดู";
+$lang['edit'] = "แก้ไข";
+$lang['delete'] = "ลบ";
+$lang['print'] = "พิมพ์";
+$lang['pdf_preview'] = "ดูตัวอย่างรูปแบบไฟล์ Pdf";
+$lang["mail"] = "ส่งไฟล์ Pdf เป็นจดหมาย";
+$lang['add_class'] = "เพิ่มวันหยุด";
+$lang['update_class'] = "ปรับปรุงวันหยุด";
+$lang['to'] = "ไปยัง";
+$lang['subject'] = "เรื่อง";
+$lang['message'] = "ข่าวสาร";
+$lang['send'] = "ส่ง";
+$lang['mail_to'] = "สนามเพื่อเป็นสิ่งจำเป็น";
+$lang['mail_valid'] = "ฟิลด์การจะต้องมีที่อยู่อีเมลที่ถูกต้อง";
+$lang['mail_subject'] = "ช่องเรื่องเป็นสิ่งจำเป็น";
+$lang['mail_success'] = "อีเมล์ส่งเรียบร้อยแล้ว";
+$lang['mail_error'] = "โอ๊ะอีเมล์ไม่ได้ส่ง";

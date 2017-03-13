@@ -1,0 +1,36 @@
+<?php
+
+$lang['panel_title'] = "घटना";
+$lang['add_title'] = "एक घटना जोड़ें";
+$lang['slno'] = "#";
+$lang['event_title'] = "शीर्षक";
+$lang['event_details'] = "विवरण";
+$lang['event_header'] = "घटना की जानकारी";
+$lang['event_date'] = "तारीख";
+$lang['event_fdate'] = "तारीख से";
+$lang['event_tdate'] = "तारीख तक";
+$lang['event_photo'] = "तस्वीर";
+$lang['event_name'] = "नाम";
+$lang['event_user'] = "उपयोगकर्ता";
+$lang['action'] = "कार्य";
+$lang['event_clear'] = "स्पष्ट";
+$lang['event_file_browse'] = "फ़ाइल ब्राउज़";
+$lang['view'] = "राय";
+$lang['edit'] = "संपादित करें";
+$lang['delete'] = "मिटाना";
+$lang['print'] = "छाप";
+$lang['pdf_preview'] = "पीडीएफ पूर्वावलोकन";
+$lang["mail"] = "मेल पीडीएफ भेजें";
+$lang['going'] = "Going";
+$lang['ignore'] = "नज़रअंदाज़ करना";
+$lang['add_class'] = "कार्यक्रम जोड़ें";
+$lang['update_class'] = "अद्यतन घटना";
+$lang['to'] = "सेवा मेरे";
+$lang['subject'] = "विषय";
+$lang['message'] = "संदेश";
+$lang['send'] = "भेजना";
+$lang['mail_to'] = "के लिए मैदान की आवश्यकता है।";
+$lang['mail_valid'] = "के लिए मैदान एक मान्य ईमेल पता होना चाहिए।";
+$lang['mail_subject'] = "विषय क्षेत्र की आवश्यकता है।";
+$lang['mail_success'] = "ईमेल सफलतापूर्वक भेजने के लिए!";
+$lang['mail_error'] = "ओह! ईमेल भेजने के लिए नहीं!";

@@ -1,0 +1,36 @@
+<?php
+
+$lang['panel_title'] = "هدف";
+$lang['add_title'] = "إضافة حدث";
+$lang['slno'] = "#";
+$lang['event_title'] = "عنوان";
+$lang['event_details'] = "تفاصيل";
+$lang['event_header'] = "تفاصيل الحدث";
+$lang['event_date'] = "تاريخ";
+$lang['event_fdate'] = "من التاريخ";
+$lang['event_tdate'] = "ان يذهب في موعد";
+$lang['event_photo'] = "صورة فوتوغرافية";
+$lang['event_name'] = "اسم";
+$lang['event_user'] = "المستعمل";
+$lang['action'] = "عمل";
+$lang['event_clear'] = "واضح";
+$lang['event_file_browse'] = "تصفح الملفات";
+$lang['view'] = "رأي";
+$lang['edit'] = "تصحيح";
+$lang['delete'] = "حذف";
+$lang['print'] = "طباعة";
+$lang['pdf_preview'] = "Pdf معاينة";
+$lang["mail"] = "إرسال قوات الدفاع الشعبي إلى البريد";
+$lang['going'] = "ذاهب";
+$lang['ignore'] = "تجاهل";
+$lang['add_class'] = "إضافة حدث";
+$lang['update_class'] = "تحديث الحدث";
+$lang['to'] = "إلى";
+$lang['subject'] = "موضوع";
+$lang['message'] = "رسالة";
+$lang['send'] = "إرسال";
+$lang['mail_to'] = "مطلوب مجال ل.";
+$lang['mail_valid'] = "يجب أن يحتوي الحقل لعنوان بريد إلكتروني صالح.";
+$lang['mail_subject'] = "مطلوب حقل الموضوع.";
+$lang['mail_success'] = "البريد الالكتروني ارسال بنجاح،";
+$lang['mail_error'] = "عفوا، البريد الإلكتروني لم ترسل،";

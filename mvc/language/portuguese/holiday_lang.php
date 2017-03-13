@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "Feriado";
+$lang['add_title'] = "Adicionar Um Feriado";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "Título";
+$lang['holiday_details'] = "Detalhes";
+$lang['holiday_date'] = "Encontro";
+$lang['holiday_fdate'] = "Da Data";
+$lang['holiday_tdate'] = "Até A Presente Data";
+$lang['holiday_photo'] = "Foto";
+$lang['action'] = "Açao";
+$lang['holiday_file_browse'] = "Arquivo Procurar";
+$lang['holiday_clear'] = "Claro";
+$lang['holiday_header'] = "Detalhes Do Feriado";
+$lang['view'] = "Visão";
+$lang['edit'] = "Editar";
+$lang['delete'] = "Excluir";
+$lang['print'] = "Impressão";
+$lang['pdf_preview'] = "Visualização Em Pdf";
+$lang["mail"] = "Enviar Pdf Para Correio";
+$lang['add_class'] = "Adicionar Férias";
+$lang['update_class'] = "Atualização De Férias";
+$lang['to'] = "Para";
+$lang['subject'] = "Sujeito";
+$lang['message'] = "Mensagem";
+$lang['send'] = "Enviar";
+$lang['mail_to'] = "O Campo Para é Obrigatório.";
+$lang['mail_valid'] = "O Campo Para Deve Conter Um Endereço De E-mail Válido.";
+$lang['mail_subject'] = "O Campo Assunto é Obrigatório.";
+$lang['mail_success'] = "Email Enviar Com Sucesso!";
+$lang['mail_error'] = "Oops! Email Não Enviar!";

@@ -1,0 +1,30 @@
+<?php
+
+$lang['panel_title'] = "考试考勤";
+$lang['add_title'] = "添加考试出席";
+$lang['slno'] = "＃＃";
+$lang['eattendance_photo'] = "照片";
+$lang['eattendance_name'] = "名称";
+$lang['eattendance_email'] = "电子邮件";
+$lang['eattendance_roll'] = "滚";
+$lang['eattendance_phone'] = "电话";
+$lang['eattendance_attendance'] = "出勤";
+$lang['eattendance_section'] = "部分";
+$lang['eattendance_exam'] = "考试";
+$lang['eattendance_classes'] = "类";
+$lang['eattendance_subject'] = "学科";
+$lang['eattendance_status'] = "状态";
+$lang['eattendance_student'] = "学生";
+$lang['eattendance_all_students'] = "全体学生";
+$lang['eattendance_present'] = "当下";
+$lang['eattendance_absent'] = "缺席";
+$lang['eattendance_details'] = "考试考勤详情";
+$lang['eattendance_select_exam'] = "选择检查";
+$lang['eattendance_select_classes'] = "选择类";
+$lang['eattendance_select_subject'] = "选择主题";
+$lang['eattendance_select_section'] = "选择部分";
+$lang['eattendance_select_student'] = "选择学生";
+$lang['action'] = "行动";
+$lang['add_attendance'] = "出勤";
+$lang['add_all_attendance'] = "添加所有出席";
+$lang['view_attendance'] = "查看出勤";

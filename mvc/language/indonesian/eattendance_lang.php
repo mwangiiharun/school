@@ -1,0 +1,30 @@
+<?php
+
+$lang['panel_title'] = "Ujian Kehadiran";
+$lang['add_title'] = "Menambahkan Ujian Kehadiran";
+$lang['slno'] = "#";
+$lang['eattendance_photo'] = "Foto";
+$lang['eattendance_name'] = "Nama";
+$lang['eattendance_email'] = "E-mail";
+$lang['eattendance_roll'] = "Gulungan";
+$lang['eattendance_phone'] = "Telepon";
+$lang['eattendance_attendance'] = "Kehadiran";
+$lang['eattendance_section'] = "Bagian";
+$lang['eattendance_exam'] = "Ujian";
+$lang['eattendance_classes'] = "Kelas";
+$lang['eattendance_subject'] = "Subyek";
+$lang['eattendance_status'] = "Status";
+$lang['eattendance_student'] = "Mahasiswa";
+$lang['eattendance_all_students'] = "Semua Murid";
+$lang['eattendance_present'] = "Menyajikan";
+$lang['eattendance_absent'] = "Tidak Hadir";
+$lang['eattendance_details'] = "Detail Ujian Kehadiran";
+$lang['eattendance_select_exam'] = "Pilih Ujian";
+$lang['eattendance_select_classes'] = "Pilih Kelas";
+$lang['eattendance_select_subject'] = "Pilih Jurusan";
+$lang['eattendance_select_section'] = "Pilih Bagian";
+$lang['eattendance_select_student'] = "Pilih Mahasiswa";
+$lang['action'] = "Tindakan";
+$lang['add_attendance'] = "Kehadiran";
+$lang['add_all_attendance'] = "Tambahkan Semua Kehadiran";
+$lang['view_attendance'] = "Lihat Kehadiran";

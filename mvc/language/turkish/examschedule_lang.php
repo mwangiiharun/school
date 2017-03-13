@@ -1,0 +1,31 @@
+<?php
+
+$lang['panel_title'] = "Sınav Takvimi";
+$lang['add_title'] = "Sınav Takvimi Ekle";
+$lang['slno'] = "#";
+$lang['examschedule_name'] = "Sınav Adı";
+$lang['examschedule_classes'] = "Sınıf";
+$lang['examschedule_all_examschedule'] = "Tüm Sınav Programları";
+$lang['examschedule_select_exam'] = "Sınavı Seç";
+$lang['examschedule_select_classes'] = "Sınıfı Seç";
+$lang['examschedule_select_department'] = "Bölümü Seç";
+$lang['examschedule_select_subject'] = "Konu Seçiniz";
+$lang['examschedule_select_section'] = "Bölüm Seç";
+$lang['examschedule_select_student'] = "Öğrenciyi Seç";
+$lang['examschedule_section'] = "Bölüm";
+$lang['examschedule_student'] = "Öğrenci";
+$lang['examschedule_subject'] = "Konu";
+$lang['examschedule_date'] = "Tarih";
+$lang['examschedule_time'] = "Zaman";
+$lang['examschedule_examfrom'] = "Zamandan";
+$lang['examschedule_examto'] = "Zaman";
+$lang['examschedule_room'] = "Oda";
+$lang['examschedule_note'] = "Not";
+$lang['examschedule_department'] = "Bölüm";
+$lang['examschedule_quick_add'] = "Hızlı Ekle";
+$lang['action'] = "Aksiyon";
+$lang['view'] = "Görünüm";
+$lang['edit'] = "Düzenle";
+$lang['delete'] = "Sil";
+$lang['add_examschedule'] = "Sınav Takvimi Ekle";
+$lang['update_examschedule'] = "Sınav Takvimini Güncelle";

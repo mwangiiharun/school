@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "مهمة";
+$lang['add_title'] = "إضافة مهمة";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "صف دراسي";
+$lang['assignment_title'] = "عنوان";
+$lang['assignment_description'] = "وصف";
+$lang['assignment_deadlinedate'] = "الموعد النهائي";
+$lang['assignment_uploder'] = "رافع";
+$lang['assignment_student'] = "طالب علم";
+$lang['assignment_roll'] = "تدحرج";
+$lang['assignment_submission'] = "تاريخ التقديم";
+$lang['assignment_section'] = "الجزء";
+$lang['assignment_subject'] = "موضوع";
+$lang['assignment_select_classes'] = "حدد فئة";
+$lang['assignment_select_student'] = "حدد الطلاب";
+$lang['assignment_select_section'] = "حدد القسم";
+$lang['assignment_select_subject'] = "حدد الموضوع";
+$lang['assignment_file'] = "ملف";
+$lang['assignment_file_browse'] = "تصفح الملفات";
+$lang['assignment_clear'] = "واضح";
+$lang['assignment_ans'] = "إجابة";
+$lang['add_syllabus_ans'] = "إضافة الإجابة";
+$lang['assignment_ans_list'] = "قائمة الجواب";
+$lang['action'] = "عمل";
+$lang['download'] = "تحميل";
+$lang['view'] = "رأي";
+$lang['edit'] = "تصحيح";
+$lang['delete'] = "حذف";
+$lang['upload'] = "تحميل";
+$lang['add_syllabus'] = "إضافة المنهج";
+$lang['update_syllabus'] = "تحديث المناهج";

@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "असाइनमेंट";
+$lang['add_title'] = "एक काम के जोड़े";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "कक्षा";
+$lang['assignment_title'] = "शीर्षक";
+$lang['assignment_description'] = "विवरण";
+$lang['assignment_deadlinedate'] = "समयसीमा";
+$lang['assignment_uploder'] = "अपलोडर";
+$lang['assignment_student'] = "छात्र";
+$lang['assignment_roll'] = "रोल";
+$lang['assignment_submission'] = "स करने की तारीख";
+$lang['assignment_section'] = "अनुभाग";
+$lang['assignment_subject'] = "विषय";
+$lang['assignment_select_classes'] = "वर्ग का चयन";
+$lang['assignment_select_student'] = "छात्र का चयन";
+$lang['assignment_select_section'] = "अनुभाग का चयन";
+$lang['assignment_select_subject'] = "विषय का चयन";
+$lang['assignment_file'] = "फ़ाइल";
+$lang['assignment_file_browse'] = "फ़ाइल ब्राउज़";
+$lang['assignment_clear'] = "स्पष्ट";
+$lang['assignment_ans'] = "उत्तर";
+$lang['add_syllabus_ans'] = "जवाब में जोड़ें";
+$lang['assignment_ans_list'] = "जवाब सूची";
+$lang['action'] = "कार्य";
+$lang['download'] = "डाउनलोड";
+$lang['view'] = "राय";
+$lang['edit'] = "संपादित करें";
+$lang['delete'] = "मिटाना";
+$lang['upload'] = "अपलोड";
+$lang['add_syllabus'] = "सिलेबस जोड़े";
+$lang['update_syllabus'] = "अद्यतन पाठ्यक्रम";

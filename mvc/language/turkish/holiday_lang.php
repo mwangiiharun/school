@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "Tatil";
+$lang['add_title'] = "Tatil Ekle";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "Başlık";
+$lang['holiday_details'] = "Ayrıntılar";
+$lang['holiday_date'] = "Tarih";
+$lang['holiday_fdate'] = "İtibaren";
+$lang['holiday_tdate'] = "Bugüne Kadar";
+$lang['holiday_photo'] = "Fotoğraf";
+$lang['action'] = "Aksiyon";
+$lang['holiday_file_browse'] = "Dosyaya Göz At";
+$lang['holiday_clear'] = "Açık";
+$lang['holiday_header'] = "Tatil Detayları";
+$lang['view'] = "Görünüm";
+$lang['edit'] = "Düzenle";
+$lang['delete'] = "Sil";
+$lang['print'] = "Yazdır";
+$lang['pdf_preview'] = "Pdf Önizleme";
+$lang["mail"] = "Pdf To Mail Gönder";
+$lang['add_class'] = "Tatil Ekle";
+$lang['update_class'] = "Tatili Güncelle";
+$lang['to'] = "Için";
+$lang['subject'] = "Konu";
+$lang['message'] = "Mesaj";
+$lang['send'] = "Gönder";
+$lang['mail_to'] = "Kime Alanına Girilmesi Zorunludur.";
+$lang['mail_valid'] = "Kime Alanına Geçerli Bir E-posta Adresi Olmalıdır.";
+$lang['mail_subject'] = "Konu Alanı Zorunludur.";
+$lang['mail_success'] = "E-posta Başarıyla Gönderilsin!";
+$lang['mail_error'] = "Oops! E-posta Gönderilmez!";

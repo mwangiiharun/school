@@ -1,0 +1,36 @@
+<?php
+
+$lang['panel_title'] = "เหตุการณ์";
+$lang['add_title'] = "เพิ่มเหตุการณ์";
+$lang['slno'] = "#";
+$lang['event_title'] = "หัวข้อ";
+$lang['event_details'] = "รายละเอียด";
+$lang['event_header'] = "รายละเอียดเหตุการณ์";
+$lang['event_date'] = "วันที่";
+$lang['event_fdate'] = "จากวันที่";
+$lang['event_tdate'] = "ถึงวันที่";
+$lang['event_photo'] = "ภาพถ่าย";
+$lang['event_name'] = "ชื่อ";
+$lang['event_user'] = "ผู้ใช้งาน";
+$lang['action'] = "การกระทำ";
+$lang['event_clear'] = "ชัดเจน";
+$lang['event_file_browse'] = "ยื่นเรียกดู";
+$lang['view'] = "ดู";
+$lang['edit'] = "แก้ไข";
+$lang['delete'] = "ลบ";
+$lang['print'] = "พิมพ์";
+$lang['pdf_preview'] = "ดูตัวอย่างรูปแบบไฟล์ Pdf";
+$lang["mail"] = "ส่งไฟล์ Pdf เป็นจดหมาย";
+$lang['going'] = "ไป";
+$lang['ignore'] = "ไม่สนใจ";
+$lang['add_class'] = "เพิ่มเหตุการณ์";
+$lang['update_class'] = "จัดกิจกรรมการปรับปรุง";
+$lang['to'] = "ไปยัง";
+$lang['subject'] = "เรื่อง";
+$lang['message'] = "ข่าวสาร";
+$lang['send'] = "ส่ง";
+$lang['mail_to'] = "สนามเพื่อเป็นสิ่งจำเป็น";
+$lang['mail_valid'] = "ฟิลด์การจะต้องมีที่อยู่อีเมลที่ถูกต้อง";
+$lang['mail_subject'] = "ช่องเรื่องเป็นสิ่งจำเป็น";
+$lang['mail_success'] = "อีเมล์ส่งเรียบร้อยแล้ว";
+$lang['mail_error'] = "โอ๊ะอีเมล์ไม่ได้ส่ง";

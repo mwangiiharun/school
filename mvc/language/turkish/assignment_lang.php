@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "Ödev";
+$lang['add_title'] = "Ödev Ekle";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "Sınıf";
+$lang['assignment_title'] = "Başlık";
+$lang['assignment_description'] = "Açıklama";
+$lang['assignment_deadlinedate'] = "Son Tarih";
+$lang['assignment_uploder'] = "Gönderen";
+$lang['assignment_student'] = "Öğrenci";
+$lang['assignment_roll'] = "Rulo";
+$lang['assignment_submission'] = "Teslim Tarihi";
+$lang['assignment_section'] = "Bölüm";
+$lang['assignment_subject'] = "Konu";
+$lang['assignment_select_classes'] = "Sınıfı Seç";
+$lang['assignment_select_student'] = "Öğrenciyi Seç";
+$lang['assignment_select_section'] = "Bölüm Seç";
+$lang['assignment_select_subject'] = "Konu Seçiniz";
+$lang['assignment_file'] = "Dosya";
+$lang['assignment_file_browse'] = "Dosyaya Göz At";
+$lang['assignment_clear'] = "Açık";
+$lang['assignment_ans'] = "Cevap";
+$lang['add_syllabus_ans'] = "Cevap Ekle";
+$lang['assignment_ans_list'] = "Cevap Listesi";
+$lang['action'] = "Aksiyon";
+$lang['download'] = "İndir";
+$lang['view'] = "Görünüm";
+$lang['edit'] = "Düzenle";
+$lang['delete'] = "Sil";
+$lang['upload'] = "Yükleme";
+$lang['add_syllabus'] = "Müfredat Ekle";
+$lang['update_syllabus'] = "Müfredat Güncelleme";

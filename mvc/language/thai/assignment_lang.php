@@ -1,0 +1,33 @@
+<?php
+
+$lang['panel_title'] = "การมอบหมาย";
+$lang['add_title'] = "เพิ่มมอบหมาย";
+$lang['slno'] = "#";
+$lang['assignment_classes'] = "ชั้น";
+$lang['assignment_title'] = "หัวข้อ";
+$lang['assignment_description'] = "ลักษณะ";
+$lang['assignment_deadlinedate'] = "วันกำหนดส่ง";
+$lang['assignment_uploder'] = "อัพโหลด";
+$lang['assignment_student'] = "นักเรียน";
+$lang['assignment_roll'] = "ม้วน";
+$lang['assignment_submission'] = "วันที่ยื่น";
+$lang['assignment_section'] = "มาตรา";
+$lang['assignment_subject'] = "เรื่อง";
+$lang['assignment_select_classes'] = "เลือกชั้นเรียน";
+$lang['assignment_select_student'] = "เลือกนักศึกษา";
+$lang['assignment_select_section'] = "เลือกส่วน";
+$lang['assignment_select_subject'] = "เลือกสาขาวิชา";
+$lang['assignment_file'] = "ไฟล์";
+$lang['assignment_file_browse'] = "ยื่นเรียกดู";
+$lang['assignment_clear'] = "ชัดเจน";
+$lang['assignment_ans'] = "ตอบ";
+$lang['add_syllabus_ans'] = "เพิ่มคำตอบ";
+$lang['assignment_ans_list'] = "รายการคำตอบ";
+$lang['action'] = "การกระทำ";
+$lang['download'] = "ดาวน์โหลด";
+$lang['view'] = "ดู";
+$lang['edit'] = "แก้ไข";
+$lang['delete'] = "ลบ";
+$lang['upload'] = "อัปโหลด";
+$lang['add_syllabus'] = "เพิ่มหลักสูตร";
+$lang['update_syllabus'] = "การปรับปรุงหลักสูตร";

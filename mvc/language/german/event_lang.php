@@ -1,0 +1,36 @@
+<?php
+
+$lang['panel_title'] = "Event";
+$lang['add_title'] = "Ereignis Hinzufügen";
+$lang['slno'] = "Aufrechtzuerhalten.";
+$lang['event_title'] = "Titel";
+$lang['event_details'] = "Einzelheiten";
+$lang['event_header'] = "Veranstaltungsdetails";
+$lang['event_date'] = "Datum";
+$lang['event_fdate'] = "Ab Datum";
+$lang['event_tdate'] = "Miteinander Ausgehen";
+$lang['event_photo'] = "Foto";
+$lang['event_name'] = "Name";
+$lang['event_user'] = "Benutzer";
+$lang['action'] = "Aktion";
+$lang['event_clear'] = "Klar";
+$lang['event_file_browse'] = "Datei Durchsuchen";
+$lang['view'] = "Aussicht";
+$lang['edit'] = "Bearbeiten";
+$lang['delete'] = "Löschen";
+$lang['print'] = "Drucken";
+$lang['pdf_preview'] = "Pdf Vorschau";
+$lang["mail"] = "Sende Pdf An Mail";
+$lang['going'] = "Gehen";
+$lang['ignore'] = "Ignorieren";
+$lang['add_class'] = "Ereignis Hinzufügen";
+$lang['update_class'] = "Ereignis Aktualisieren";
+$lang['to'] = "Nach";
+$lang['subject'] = "Fach";
+$lang['message'] = "Nachricht";
+$lang['send'] = "Senden";
+$lang['mail_to'] = "Das Feld An Ist Erforderlich.";
+$lang['mail_valid'] = "Das Feld An Muss Eine Gültige E-mail-adresse Enthalten.";
+$lang['mail_subject'] = "Das Feld Betreff Ist Erforderlich.";
+$lang['mail_success'] = "Email Erfolgreich Senden!";
+$lang['mail_error'] = "Oops! Email Nicht Senden!";

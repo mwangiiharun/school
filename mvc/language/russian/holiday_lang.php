@@ -1,0 +1,32 @@
+<?php
+
+$lang['panel_title'] = "День отдыха";
+$lang['add_title'] = "Добавить праздник";
+$lang['slno'] = "#";
+$lang['holiday_title'] = "заглавие";
+$lang['holiday_details'] = "Детали";
+$lang['holiday_date'] = "Дата";
+$lang['holiday_fdate'] = "С даты";
+$lang['holiday_tdate'] = "Встретиться";
+$lang['holiday_photo'] = "Фото";
+$lang['action'] = "действие";
+$lang['holiday_file_browse'] = "Файл Обзор";
+$lang['holiday_clear'] = "Очистить";
+$lang['holiday_header'] = "Праздник Подробнее";
+$lang['view'] = "Посмотреть";
+$lang['edit'] = "редактировать";
+$lang['delete'] = "Удалить";
+$lang['print'] = "Распечатать";
+$lang['pdf_preview'] = "Pdf Preview";
+$lang["mail"] = "Отправить Pdf по почте";
+$lang['add_class'] = "Добавить праздник";
+$lang['update_class'] = "Обновление отдыха";
+$lang['to'] = "к";
+$lang['subject'] = "Предмет";
+$lang['message'] = "Сообщение";
+$lang['send'] = "послать";
+$lang['mail_to'] = "требуется поле Чтобы.";
+$lang['mail_valid'] = "Поле должно содержать Чтобы действительный адрес электронной почты.";
+$lang['mail_subject'] = "требуется поле Тема.";
+$lang['mail_success'] = "Email отправить успешно!";
+$lang['mail_error'] = "упс! электронная почта не отправлять!";

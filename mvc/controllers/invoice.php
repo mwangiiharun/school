@@ -330,6 +330,7 @@ class Invoice extends Admin_Controller {
 		);
 
 		$this->data['classes'] = $this->classes_m->get_classes();
+        $this->data['referrer'] = '';
 		$this->data['feetypes'] = $this->feetypes_m->get_feetypes();
 		$classesID = $this->input->post("classesID");
 		if($classesID != 0) {
@@ -342,7 +343,7 @@ class Invoice extends Admin_Controller {
 			$this->data['studentID'] = $this->input->post('studentID');
 			$rules = $this->rules();
 			$this->form_validation->set_rules($rules);
-			if ($this->form_validation->run() == FALSE) {
+            if ($this->form_validation->run() == TRUE) {
 				$this->data["subview"] = "invoice/add";
 				$this->load->view('_layout_main', $this->data);
 			} else {
@@ -379,39 +380,142 @@ class Invoice extends Admin_Controller {
 					$returnID = $this->invoice_m->insert_invoice($array);
 					$this->session->set_flashdata('success', $this->lang->line('menu_success'));
 				 	redirect(base_url("invoice/view/$returnID"));
-				} else {
+                } else {
 					$classesID = $this->input->post('classesID');
-					$getstudents = $this->student_m->get_order_by_student(array("classesID" => $classesID, 'schoolyearID' => $this->data['siteinfos']->school_year));
+                    $getstudents = $this->student_m->get_student(array(/*"classesID" => $classesID,*/ /*'schoolyearID' => $this->data['siteinfos']->school_year*/));
+                    print_r($getstudents);
 					foreach ($getstudents as $key => $getstudent) {
 						$array = array(
 							'schoolyearID' => $this->data['siteinfos']->school_year,
-							'classesID' => $this->input->post('classesID'),
-							'studentID' => $getstudent->studentID,
-							'feetype' => $this->input->post("feetype"),
-							'amount' => $this->input->post("amount"),
-							'discount' => $discount,
-							'paidstatus' => 0,
-							'userID' => $this->session->userdata('loginuserID'),
-							'usertypeID' => $this->session->userdata('usertypeID'),
-							'uname' => $this->session->userdata('name'), 
-							'date' => date("Y-m-d", strtotime($this->input->post("date"))),
-							'create_date' => date('Y-m-d'),
-							'day' => date('d'),
-							'month' => date('m'),
-							'year' => date('Y'),
-							'deleted_at' => 1
-						);
-						$this->invoice_m->insert_invoice($array);
-					}
-					$this->session->set_flashdata('success', $this->lang->line('menu_success'));
-				 	redirect(base_url("invoice/index"));
-				}
-			}
-		} else {
-			$this->data["subview"] = "invoice/add";
-			$this->load->view('_layout_main', $this->data);
-		}
-	}
+                            'classesID' => $getstudent->classesID /*$this->input->post('classesID')*/,
+                            'studentID' => $getstudent->studentID,
+                            'feetype' => $this->input->post("feetype"),
+                            'amount' => $this->input->post("amount"),
+                            'discount' => $discount,
+                            'paidstatus' => 0,
+                            'userID' => $this->session->userdata('loginuserID'),
+                            'usertypeID' => $this->session->userdata('usertypeID'),
+                            'uname' => $this->session->userdata('name'),
+                            'date' => date("Y-m-d", strtotime($this->input->post("date"))),
+                            'create_date' => date('Y-m-d'),
+                            'day' => date('d'),
+                            'month' => date('m'),
+                            'year' => date('Y'),
+                            'deleted_at' => 1
+                        );
+                        $this->invoice_m->insert_invoice($array);
+                    }
+                    $this->session->set_flashdata('success', $this->lang->line('menu_success'));
+                    redirect(base_url("invoice/index"));
+                }
+            }
+        } else {
+            $this->data["subview"] = "invoice/add";
+            $this->load->view('_layout_main', $this->data);
+        }
+    }
+
+    public function addbulk()
+    {
+        $this->data['headerassets'] = array(
+            'css' => array(
+                'assets/jqueryUI/jqueryui.css',
+                'assets/datepicker/datepicker.css',
+                'assets/select2/css/select2.css',
+                'assets/select2/css/select2-bootstrap.css'
+            ),
+            'js' => array(
+                'assets/jqueryUI/jqueryui.min.js',
+                'assets/datepicker/datepicker.js',
+                'assets/select2/select2.js'
+            )
+        );
+        $this->data['referrer'] = 'bulk';
+
+        $this->data['classes'] = $this->classes_m->get_classes();
+        $this->data['feetypes'] = $this->feetypes_m->get_feetypes();
+        $classesID = $this->input->post("classesID");
+        if ($classesID != 0) {
+            $this->data['students'] = $this->student_m->get_order_by_student(array("classesID" => $classesID, 'schoolyearID' => $this->data['siteinfos']->school_year));
+        } else {
+            $this->data['students'] = "empty";
+        }
+        $this->data['studentID'] = 0;
+        if ($_POST) {
+            $this->data['studentID'] = $this->input->post('studentID');
+            $rules = $this->rules();
+            $this->form_validation->set_rules($rules);
+            if ($this->form_validation->run() == TRUE) {
+                $this->data["subview"] = "invoice/add";
+                $this->load->view('_layout_main', $this->data);
+            } else {
+                if ($this->input->post('discount') == '' || $this->input->post('discount') == 0) {
+                    $discount = 0;
+                } else {
+                    $discount = $this->input->post('discount');
+                }
+
+                $getfeetype = $this->feetypes_m->get_single_feetypes(array('feetypes' => $this->input->post('feetype')));
+                if (!count($getfeetype)) {
+                    $this->feetypes_m->insert_feetypes(array('feetypes' => $this->input->post('feetype')));
+                }
+
+                if ($this->input->post('studentID')) {
+                    $array = array(
+                        'schoolyearID' => $this->data['siteinfos']->school_year,
+                        'classesID' => $this->input->post('classesID'),
+                        'studentID' => $this->input->post('studentID'),
+                        'feetype' => $this->input->post("feetype"),
+                        'amount' => $this->input->post("amount"),
+                        'discount' => $discount,
+                        'paidstatus' => 0,
+                        'userID' => $this->session->userdata('loginuserID'),
+                        'usertypeID' => $this->session->userdata('usertypeID'),
+                        'uname' => $this->session->userdata('name'),
+                        'date' => date("Y-m-d", strtotime($this->input->post("date"))),
+                        'create_date' => date('Y-m-d'),
+                        'day' => date('d'),
+                        'month' => date('m'),
+                        'year' => date('Y'),
+                        'deleted_at' => 1
+                    );
+                    $returnID = $this->invoice_m->insert_invoice($array);
+                    $this->session->set_flashdata('success', $this->lang->line('menu_success'));
+                    redirect(base_url("invoice/view/$returnID"));
+                } else {
+                    $classesID = $this->input->post('classesID');
+                    $getstudents = $this->student_m->get_student(array(/*"classesID" => $classesID,*/ /*'schoolyearID' => $this->data['siteinfos']->school_year*/));
+                    print_r($getstudents);
+                    foreach ($getstudents as $key => $getstudent) {
+                        $array = array(
+                            'schoolyearID' => $this->data['siteinfos']->school_year,
+                            'classesID' => $getstudent->classesID /*$this->input->post('classesID')*/,
+                            'studentID' => $getstudent->studentID,
+                            'feetype' => $this->input->post("feetype"),
+                            'amount' => $this->input->post("amount"),
+                            'discount' => $discount,
+                            'paidstatus' => 0,
+                            'userID' => $this->session->userdata('loginuserID'),
+                            'usertypeID' => $this->session->userdata('usertypeID'),
+                            'uname' => $this->session->userdata('name'),
+                            'date' => date("Y-m-d", strtotime($this->input->post("date"))),
+                            'create_date' => date('Y-m-d'),
+                            'day' => date('d'),
+                            'month' => date('m'),
+                            'year' => date('Y'),
+                            'deleted_at' => 1
+                        );
+                        $this->invoice_m->insert_invoice($array);
+                    }
+                    $this->session->set_flashdata('success', $this->lang->line('menu_success'));
+                    redirect(base_url("invoice/index"));
+                }
+            }
+        } else {
+            $this->data["subview"] = "invoice/add";
+            $this->load->view('_layout_main', $this->data);
+        }
+    }
 
 	public function edit() {
 		$this->data['headerassets'] = array(

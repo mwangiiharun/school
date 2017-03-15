@@ -21,6 +21,8 @@
                     <ul class="nav nav-tabs">
                         <li class="<?php if($email == 1) echo 'active'; ?>"><a data-toggle="tab" href="#email" aria-expanded="true"><?=$this->lang->line('mailandsms_email')?></a></li>
                         <li class="<?php if($sms == 1) echo 'active'; ?>"><a data-toggle="tab" href="#sms" aria-expanded="true"><?=$this->lang->line('mailandsms_sms')?></a></li>
+                        <li class="<?php if ($sms == 1) echo 'active'; ?>"><a data-toggle="tab" href="#smsbulk"
+                                                                              aria-expanded="true">Bulk Sms</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -234,11 +236,11 @@
                             <div class="row">
                                 <div class="col-sm-10">
                                     <form class="form-horizontal" role="form" method="post">
-                                        <?php echo form_hidden('type', 'sms'); ?> 
-                                        <?php 
-                                            if(form_error('sms_usertypeID')) 
+                                        <?php echo form_hidden('type', 'sms'); ?>
+                                        <?php
+                                        if (form_error('sms_usertypeID'))
                                                 echo "<div class='form-group has-error' >";
-                                            else     
+                                        else
                                                 echo "<div class='form-group' >";
                                         ?>
                                             <label for="sms_usertypeID" class="col-sm-2 control-label">
@@ -263,10 +265,10 @@
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_schoolyear')) 
+                                <?php
+                                if (form_error('sms_schoolyear'))
                                                 echo "<div id='divsms_schoolyear' class='form-group has-error' >";
-                                            else     
+                                else
                                                 echo "<div id='divsms_schoolyear' class='form-group' >";
                                         ?>
                                             <label for="sms_schoolyear" class="col-sm-2 control-label">
@@ -312,10 +314,10 @@
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_class')) 
+                            <?php
+                            if (form_error('sms_class'))
                                                 echo "<div id='divsms_class' class='form-group has-error' >";
-                                            else     
+                            else
                                                 echo "<div id='divsms_class' class='form-group' >";
                                         ?>
                                             <label for="sms_class" class="col-sm-2 control-label">
@@ -335,10 +337,10 @@
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_users')) 
+<?php
+if (form_error('sms_users'))
                                                 echo "<div class='form-group has-error' >";
-                                            else     
+else
                                                 echo "<div class='form-group' >";
                                         ?>
                                             <label for="sms_users" class="col-sm-2 control-label">
@@ -358,17 +360,17 @@
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_template')) 
+<?php
+if (form_error('sms_template'))
                                                 echo "<div class='form-group has-error' >";
-                                            else     
+else
                                                 echo "<div class='form-group' >";
                                         ?>
                                             <label for="sms_template" class="col-sm-2 control-label">
                                                 <?=$this->lang->line("mailandsms_template")?>
                                             </label>
                                             <div class="col-sm-6" >
-                                                
+
                                                 <?php
                                                     $array = array(
                                                         'select' => $this->lang->line('mailandsms_select_template'),
@@ -376,24 +378,24 @@
 
                                                     echo form_dropdown("sms_template", $array, set_value("sms_template"), "id='sms_template' class='form-control select2'");
                                                 ?>
-                                                
+
                                             </div>
                                             <span class="col-sm-4 control-label">
                                                 <?php echo form_error('sms_template'); ?>
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_getway')) 
+<?php
+if (form_error('sms_getway'))
                                                 echo "<div class='form-group has-error' >";
-                                            else     
+else
                                                 echo "<div class='form-group' >";
                                         ?>
                                             <label for="sms_getway" class="col-sm-2 control-label">
                                                 <?=$this->lang->line("mailandsms_getway")?>
                                             </label>
                                             <div class="col-sm-6" >
-                                                
+
                                                 <?php
                                                     $array = array(
                                                         'astalking' => $this->lang->line('mailandsms_astalking'),
@@ -405,17 +407,17 @@
                                                     );
                                                     echo form_dropdown("sms_getway", $array, array("mailandsms_astalking"), "id='sms_getway' name='sms_gate' class='form-control select2'");
                                                 ?>
-                                                
+
                                             </div>
                                             <span class="col-sm-4 control-label">
                                                 <?php echo form_error('sms_getway'); ?>
                                             </span>
                                         </div>
 
-                                        <?php 
-                                            if(form_error('sms_message')) 
+<?php
+if (form_error('sms_message'))
                                                 echo "<div class='form-group has-error' >";
-                                            else     
+else
                                                 echo "<div class='form-group' >";
                                         ?>
                                             <label for="sms_message" class="col-sm-2 control-label">
@@ -439,6 +441,218 @@
                                 </div>
                             </div>
                         </div>
+<div id="smsbulk" class="tab-pane <?php if ($sms == 1) echo 'active'; ?>">
+    <br>
+    <div class="row">
+        <div class="col-sm-10">
+            <form class="form-horizontal" role="form" method="post">
+                <?php echo form_hidden('type', 'bulk-sms'); ?>
+                <?php
+                if (form_error('sms_usertypeID'))
+                    echo "<div class='form-group has-error' >";
+                else
+                    echo "<div class='form-group' >";
+                ?>
+                <label for="sms_usertypeID" class="col-sm-2 control-label">
+                    Recipients
+                </label>
+                <div class="col-sm-6">
+                    <?php
+                    $array = array(/*'select' => $this->lang->line('mailandsms_select_usertype'*/
+                    );
+
+                    if (count($parents)) {
+                        foreach ($usertypes as $key => $usertype) {
+                            if ($key == 4) {
+                                $array[$usertype->usertypeID] = $usertype->usertype;
+                            }
+
+                        }
+                    }
+                    echo form_dropdown("sms_usertypeID", $array, set_value("sms_usertypeID"), "id='sms_usertypeID' disabled='disabled'  class='form-control  select2'");
+                    ?>
+                </div>
+                <span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_usertypeID'); ?>
+                                            </span>
+        </div>
+
+        <?php
+        if (form_error('sms_schoolyear'))
+            echo "<div id='divsms_schoolyear1' class='form-group has-error' >";
+        else
+            echo "<div id='divsms_schoolyear1' class='form-group' >";
+        ?>
+        <label for="sms_schoolyear" class="col-sm-2 control-label">
+            <?= $this->lang->line("mailandsms_schoolyear") ?>
+        </label>
+        <div class="col-sm-6">
+            <?php
+            $array = array(
+                'select' => $this->lang->line('mailandsms_select_schoolyear')
+            );
+
+            if (count($schoolyears)) {
+                $setschoolyear = '';
+                foreach ($schoolyears as $key => $schoolyear) {
+                    if ($siteinfos->school_type == 'classbase') {
+                        if ($schoolyear->schooltype == 'classbase') {
+                            if ($schoolyear->schoolyearID == $siteinfos->school_year) {
+                                $array[$schoolyear->schoolyearID] = $schoolyear->schoolyear . ' - ' . $this->lang->line('mailandsms_default');
+                                $setschoolyear = $schoolyear->schoolyearID;
+                            } else {
+                                $array[$schoolyear->schoolyearID] = $schoolyear->schoolyear;
+                            }
+                        }
+                    } else {
+                        if ($schoolyear->schooltype == 'semesterbase') {
+                            if ($schoolyear->schoolyearID == $siteinfos->school_year) {
+                                $array[$schoolyear->schoolyearID] = $schoolyear->schoolyeartitle . ' - ' . $schoolyear->schoolyear . ' - ' . $this->lang->line('mailandsms_default');
+                                $setschoolyear = $schoolyear->schoolyearID;
+                            } else {
+                                $array[$schoolyear->schoolyearID] = $schoolyear->schoolyeartitle . ' - ' . $schoolyear->schoolyear;
+                            }
+                        }
+                    }
+                }
+            }
+
+            echo form_dropdown("sms_schoolyear", $array, set_value("sms_schoolyear", $setschoolyear), "id='sms_schoolyear' class='form-control select2'");
+            ?>
+        </div>
+        <span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_schoolyear'); ?>
+                                            </span>
+    </div>
+
+    <?php
+    if (form_error('sms_class'))
+        echo "<div id='divsms_class1' class='form-group has-error' >";
+    else
+        echo "<div id='divsms_class1' class='form-group' >";
+    ?>
+    <label for="sms_class" class="col-sm-2 control-label">
+        <?= $this->lang->line("mailandsms_class") ?>
+    </label>
+    <div class="col-sm-6">
+        <?php
+        $array = array(
+            'select' => $this->lang->line('mailandsms_select_class')
+        );
+
+        echo form_dropdown("sms_class", $array, set_value("sms_class"), "id='sms_class' class='form-control select2'");
+        ?>
+    </div>
+    <span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_class'); ?>
+                                            </span>
+</div>
+
+<?php
+if (form_error('sms_users'))
+    echo "<div class='form-group has-error' >";
+else
+    echo "<div class='form-group' >";
+?>
+<label for="sms_users" class="col-sm-2 control-label">
+    <?= $this->lang->line("mailandsms_users") ?>
+</label>
+<div class="col-sm-6">
+    <?php
+    $array = array(
+        'select' => $this->lang->line('mailandsms_select_users')
+    );
+
+    echo form_dropdown("sms_users", $array, set_value("sms_users"), "id='sms_users' class='form-control select2'");
+    ?>
+</div>
+<span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_users'); ?>
+                                            </span>
+</div>
+
+<?php
+if (form_error('sms_template'))
+    echo "<div class='form-group has-error' >";
+else
+    echo "<div class='form-group' >";
+?>
+<label for="sms_template" class="col-sm-2 control-label">
+    <?= $this->lang->line("mailandsms_template") ?>
+</label>
+<div class="col-sm-6">
+
+    <?php
+    $array = array(
+        'select' => $this->lang->line('mailandsms_select_template'),
+    );
+
+    echo form_dropdown("sms_template", $array, set_value("sms_template"), "id='sms_template' class='form-control select2'");
+    ?>
+
+</div>
+<span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_template'); ?>
+                                            </span>
+</div>
+
+<?php
+if (form_error('sms_getway'))
+    echo "<div class='form-group has-error' >";
+else
+    echo "<div class='form-group' >";
+?>
+<label for="sms_getway" class="col-sm-2 control-label">
+    <?= $this->lang->line("mailandsms_getway") ?>
+</label>
+<div class="col-sm-6">
+
+    <?php
+    $array = array(
+        'astalking' => $this->lang->line('mailandsms_astalking'),
+        'select' => $this->lang->line('mailandsms_select_send_by'),
+        'clickatell' => $this->lang->line('mailandsms_clickatell'),
+        'twilio' => $this->lang->line('mailandsms_twilio'),
+        'msg91' => $this->lang->line('mailandsms_msg91'),
+//                                                        set_value("sms_getway")
+    );
+    echo form_dropdown("sms_getway", $array, array("mailandsms_astalking"), "id='sms_getway' name='sms_gate' class='form-control select2'");
+    ?>
+
+</div>
+<span class="col-sm-4 control-label">
+                                                <?php echo form_error('sms_getway'); ?>
+                                            </span>
+</div>
+
+<?php
+if (form_error('sms_message'))
+    echo "<div class='form-group has-error' >";
+else
+    echo "<div class='form-group' >";
+?>
+<label for="sms_message" class="col-sm-2 control-label">
+    <?= $this->lang->line("mailandsms_message") ?>
+</label>
+<div class="col-sm-10">
+    <textarea class="form-control" style="resize:vertical" id="sms_message"
+              name="sms_message"><?= set_value('sms_message') ?></textarea>
+</div>
+<span class="col-xs-12 col-sm-10 col-sm-offset-2 control-label">
+                                                <?php echo form_error('sms_message'); ?>
+                                            </span>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-1 col-sm-8">
+        <input type="submit" class="btn btn-success" value="<?= $this->lang->line("send") ?>">
+    </div>
+</div>
+
+</form>
+</div>
+</div>
+</div>
 
                     </div>
                 </div> <!-- nav-tabs-custom -->
@@ -496,13 +710,16 @@
                 success: function(data) {
                     if(usertypeID == 3) {
                         $('#divemail_class').show();
+                        $('#divemail_class1').show();
                         $('#email_class').html(data);
+                        $('#email_class1').html(data);
 
                         $('#divemail_schoolyear').show();
 
                         $('#email_users').html('<?=$useroption?>');
                     } else {
                         $('#divemail_schoolyear').hide();
+                        $('#divemail_schoolyear1').hide();
                         $('#divemail_class').hide();
                         $('#email_users').html(data);
                     }

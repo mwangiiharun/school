@@ -16,6 +16,12 @@ class usertype_m extends MY_Model {
 		return $query;
 	}
 
+    function get_parent($array)
+    {
+        $query = parent::get_single($array);
+        return $query;
+    }
+
 	function get_order_by_usertype($array=NULL) {
 		$query = parent::get_order_by($array);
 		return $query;

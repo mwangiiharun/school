@@ -13,15 +13,29 @@
     <div class="box-body">
         <div class="row">
             <div class="col-sm-12">
-
-                <?php if(permissionChecker('invoice_add')) { ?>
-                    <h5 class="page-header">
+                <table>
+                    <th>
+                        <?php if (permissionChecker('invoice_add')) { ?>
+                            <h5 class="page-header">
                         <a href="<?php echo base_url('invoice/add') ?>">
-                            <i class="fa fa-plus"></i> 
-                            <?=$this->lang->line('add_title')?>
+                            <i class="fa fa-plus"></i>
+                            Single Invoice
                         </a>
                     </h5>
-                <?php } ?>
+                        <?php } ?>
+                    </th>
+                    <th>&nbsp; &nbsp;</th>
+                    <th>
+                        <?php if (permissionChecker('invoice_add')) { ?>
+                            <h5 class="page-header">
+                                <a href="<?php echo base_url('invoice/addbulk') ?>">
+                                    <i class="fa fa-plus"></i>
+                                    Invoice All Students
+                                </a>
+                            </h5>
+                        <?php } ?>
+                    </th>
+                </table>
 
                 <div id="hide-table">
                     <table id="example1" class="table table-striped table-bordered table-hover dataTable no-footer">

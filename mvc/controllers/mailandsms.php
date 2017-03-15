@@ -142,7 +142,10 @@ class Mailandsms extends Admin_Controller {
 				'assets/editor/jquery-te-1.4.0.min.js'
 			)
 		);
+
 		$this->data['usertypes'] = $this->usertype_m->get_usertype();
+        $array = array('usertypeID' => '4');
+        $this->data['parents'] = $this->usertype_m->get_single_usertype($array);
 		$this->data['schoolyears'] = $this->schoolyear_m->get_schoolyear();
 
 		/* Start For Email */
@@ -476,7 +479,7 @@ class Mailandsms extends Admin_Controller {
 						}
 					}
 				}
-			} elseif($this->input->post('type') == "sms") {
+            } elseif ($this->input->post('type') == "sms") {
 				$rules = $this->rules_sms();
 				$this->form_validation->set_rules($rules);
 				if ($this->form_validation->run() == FALSE) {
@@ -955,8 +958,487 @@ class Mailandsms extends Admin_Controller {
 						}
 					}
 				}
-			}
-		} else {
+			} elseif ($this->input->post('type') == "sms") {
+                $rules = $this->rules_sms();
+                $this->form_validation->set_rules($rules);
+                if ($this->form_validation->run() == FALSE) {
+                    echo validation_errors();
+                    $this->data["email"] = 0;
+                    $this->data["sms"] = 1;
+                    $this->data["subview"] = "mailandsms/add";
+                    $this->load->view('_layout_main', $this->data);
+                } else {
+                    $getway = $this->input->post('sms_getway');
+                    $usertypeID = $this->input->post('sms_usertypeID');
+
+                    if ($usertypeID == 1) { /* FOR ADMIN */
+                        $systemadminID = $this->input->post('sms_users');
+                        if ($systemadminID == 'select') {
+                            $countusers = '';
+                            $retval = 1;
+                            $retmess = '';
+
+                            $message = $this->input->post('sms_message');
+                            $multisystemadmins = $this->systemadmin_m->get_systemadmin();
+                            if (count($multisystemadmins)) {
+
+                                foreach ($multisystemadmins as $key => $multisystemadmin) {
+                                    $status = $this->userConfigSMS($message, $multisystemadmin, $usertypeID, $getway);
+                                    $countusers .= $multisystemadmin->name . ' ,';
+
+                                    if ($status['check'] == FALSE) {
+                                        $retval = 0;
+                                        $retmess = $status['message'];
+                                        break;
+                                    }
+
+                                }
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $countusers,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        } else {
+                            $retval = 1;
+                            $retmess = '';
+                            $message = $this->input->post('sms_message');
+                            $singlesystemadmin = $this->systemadmin_m->get_systemadmin($systemadminID);
+                            if (count($singlesystemadmin)) {
+                                $status = $this->userConfigSMS($message, $singlesystemadmin, $usertypeID, $getway);
+                                if ($status['check'] == FALSE) {
+                                    $retval = 0;
+                                    $retmess = $status['message'];
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $singlesystemadmin->name,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        }
+                    } elseif ($usertypeID == 2) { /* FOR TEACHER */
+                        $teacherID = $this->input->post('sms_users');
+                        if ($teacherID == 'select') {
+                            $message = $this->input->post('sms_message');
+                            $multiteachers = $this->teacher_m->get_teacher();
+                            if (count($multiteachers)) {
+                                $countusers = '';
+                                $retval = 1;
+                                $retmess = '';
+                                foreach ($multiteachers as $key => $multiteacher) {
+                                    $status = $this->userConfigSMS($message, $multiteacher, $usertypeID, $getway);
+                                    $countusers .= $multiteacher->name . ' ,';
+
+                                    if ($status['check'] == FALSE) {
+                                        $retval = 0;
+                                        $retmess = $status['message'];
+                                        break;
+                                    }
+
+                                }
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $countusers,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        } else {
+                            $retval = 1;
+                            $retmess = '';
+                            $message = $this->input->post('sms_message');
+                            $singleteacher = $this->teacher_m->get_teacher($teacherID);
+                            if (count($singleteacher)) {
+                                $status = $this->userConfigSMS($message, $singleteacher, $usertypeID, $getway);
+                                if ($status['check'] == FALSE) {
+                                    $retval = 0;
+                                    $retmess = $status['message'];
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $singleteacher->name,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        }
+                    } elseif ($usertypeID == 3) { /* FOR STUDENT */
+
+                        $studentID = $this->input->post('sms_users');
+                        if ($studentID == 'select') {
+                            $class = $this->input->post('sms_class');
+                            if ($class == 'select') {
+                                /* Multi School Year */
+                                $countusers = '';
+                                $retval = 1;
+                                $retmess = '';
+
+                                $schoolyear = $this->input->post('sms_schoolyear');
+                                if ($schoolyear == 'select') {
+                                    $message = $this->input->post('sms_message');
+                                    $multiSchoolYearStudents = $this->student_m->get_student();
+                                    if (count($multiSchoolYearStudents)) {
+                                        foreach ($multiSchoolYearStudents as $key => $multiSchoolYearStudent) {
+                                            $status = $this->userConfigSMS($message, $multiSchoolYearStudent, $usertypeID, $getway);
+                                            $countusers .= $multiSchoolYearStudent->name . ' ,';
+                                            if ($status['check'] == FALSE) {
+                                                $retval = 0;
+                                                $retmess = $status['message'];
+                                                break;
+                                            }
+                                        }
+
+                                        if ($retval == 1) {
+                                            $array = array(
+                                                'usertypeID' => $usertypeID,
+                                                'users' => $countusers,
+                                                'type' => ucfirst($this->input->post('type')),
+                                                'message' => $this->input->post('sms_message'),
+                                                'year' => date('Y'),
+                                                'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                                'senderID' => $this->session->userdata('loginuserID')
+                                            );
+                                            $this->mailandsms_m->insert_mailandsms($array);
+                                            redirect(base_url('mailandsms/index'));
+                                        } else {
+                                            $this->session->set_flashdata('error', $retmess);
+                                            redirect(base_url('mailandsms/add'));
+                                        }
+                                    } else {
+                                        $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                        redirect(base_url('mailandsms/add'));
+                                    }
+                                } else {
+                                    /* Single school Year Student */
+                                    $countusers = '';
+                                    $retval = 1;
+                                    $retmess = '';
+                                    $message = $this->input->post('sms_message');
+                                    $singleSchoolYear = $this->input->post('sms_schoolyear');
+                                    $singleSchoolYearStudents = $this->student_m->get_order_by_student(array('schoolyearID' => $singleSchoolYear));
+                                    if (count($singleSchoolYearStudents)) {
+
+                                        foreach ($singleSchoolYearStudents as $key => $singleSchoolYearStudent) {
+                                            $status = $this->userConfigSMS($message, $singleSchoolYearStudent, $usertypeID, $getway);
+                                            $countusers .= $singleSchoolYearStudent->name . ' ,';
+                                            if ($status['check'] == FALSE) {
+                                                $retval = 0;
+                                                $retmess = $status['message'];
+                                                break;
+                                            }
+
+
+                                        }
+                                        if ($retval == 1) {
+                                            $array = array(
+                                                'usertypeID' => $usertypeID,
+                                                'users' => $countusers,
+                                                'type' => ucfirst($this->input->post('type')),
+                                                'message' => $this->input->post('sms_message'),
+                                                'year' => date('Y'),
+                                                'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                                'senderID' => $this->session->userdata('loginuserID')
+                                            );
+                                            $this->mailandsms_m->insert_mailandsms($array);
+                                            redirect(base_url('mailandsms/index'));
+                                        } else {
+                                            $this->session->set_flashdata('error', $retmess);
+                                            redirect(base_url("mailandsms/add"));
+                                        }
+                                    } else {
+                                        $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                        redirect(base_url('mailandsms/add'));
+                                    }
+                                }
+                            } else {
+                                /* Single Class Student */
+                                $countusers = '';
+                                $retval = 1;
+                                $retmess = '';
+
+                                $message = $this->input->post('sms_message');
+                                $singleClass = $this->input->post('sms_class');
+                                $singleClassStudents = $this->student_m->get_order_by_student(array('classesID' => $singleClass));
+                                if (count($singleClassStudents)) {
+                                    $countusers = '';
+                                    foreach ($singleClassStudents as $key => $singleClassStudent) {
+                                        $status = $this->userConfigSMS($message, $singleClassStudent, $usertypeID, $getway);
+                                        $countusers .= $singleClassStudent->name . ' ,';
+                                        if ($status['check'] == FALSE) {
+                                            $retval = 0;
+                                            $retmess = $status['message'];
+                                            break;
+                                        }
+                                    }
+
+                                    if ($retval == 1) {
+                                        $array = array(
+                                            'usertypeID' => $usertypeID,
+                                            'users' => $countusers,
+                                            'type' => ucfirst($this->input->post('type')),
+                                            'message' => $this->input->post('sms_message'),
+                                            'year' => date('Y'),
+                                            'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                            'senderID' => $this->session->userdata('loginuserID')
+                                        );
+                                        $this->mailandsms_m->insert_mailandsms($array);
+                                        redirect(base_url('mailandsms/index'));
+                                    } else {
+                                        $this->session->set_flashdata('error', $retmess);
+                                        redirect(base_url("mailandsms/add"));
+                                    }
+                                } else {
+                                    $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                    redirect(base_url('mailandsms/add'));
+                                }
+                            }
+                        } else {
+                            /* Single Student */
+                            $retval = 1;
+                            $retmess = '';
+
+                            $message = $this->input->post('sms_message');
+                            $singlestudent = $this->student_m->get_student($studentID);
+                            if (count($singlestudent)) {
+                                $status = $this->userConfigSMS($message, $singlestudent, $usertypeID, $getway);
+                                if ($status['check'] == FALSE) {
+                                    $retval = 0;
+                                    $retmess = $status['message'];
+                                }
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $singlestudent->name,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+
+                        }
+                    } elseif ($usertypeID == 4) { /* FOR PARENTS */
+                        $parentsID = $this->input->post('sms_users');
+                        if ($parentsID == 'select') {
+                            $countusers = '';
+                            $retval = 1;
+                            $retmess = '';
+
+                            $message = $this->input->post('sms_message');
+                            $multiparents = $this->parents_m->get_parents();
+                            if (count($multiparents)) {
+
+                                foreach ($multiparents as $key => $multiparent) {
+                                    $status = $this->userConfigSMS($message, $multiparent, $usertypeID, $getway);
+                                    $countusers .= $multiparent->name . ' ,';
+
+                                    if ($status['check'] == FALSE) {
+                                        $retval = 0;
+                                        $retmess = $status['message'];
+                                        break;
+                                    }
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $countusers,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        } else {
+                            $retval = 1;
+                            $retmess = '';
+
+                            $message = $this->input->post('sms_message');
+                            $singleparent = $this->parents_m->get_parents($parentsID);
+                            if (count($singleparent)) {
+                                $status = $this->userConfigSMS($message, $singleparent, $usertypeID, $getway);
+                                if ($status['check'] == FALSE) {
+                                    $retval = 0;
+                                    $retmess = $status['message'];
+
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $singleparent->name,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        }
+                    } else { /* FOR ALL USERS */
+                        $userID = $this->input->post('sms_users');
+                        if ($userID == 'select') {
+                            $countusers = '';
+                            $retval = 1;
+                            $retmess = '';
+                            $message = $this->input->post('sms_message');
+                            $multiusers = $this->user_m->get_order_by_user(array('usertypeID' => $usertypeID));
+                            if (count($multiusers)) {
+                                foreach ($multiusers as $key => $multiuser) {
+                                    $status = $this->userConfigSMS($message, $multiuser, $usertypeID, $getway);
+                                    $countusers .= $multiuser->name . ' ,';
+
+                                    if ($status['check'] == FALSE) {
+                                        $retval = 0;
+                                        $retmess = $status['message'];
+                                        break;
+                                    }
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $countusers,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        } else {
+                            $retval = 1;
+                            $retmess = '';
+                            $message = $this->input->post('sms_message');
+                            $singleuser = $this->user_m->get_user($userID);
+                            if (count($singleuser)) {
+                                $status = $this->userConfigSMS($message, $singleuser, $usertypeID, $getway);
+                                if ($status['check'] == FALSE) {
+                                    $retval = 0;
+                                    $retmess = $status['message'];
+                                }
+
+                                if ($retval == 1) {
+                                    $array = array(
+                                        'usertypeID' => $usertypeID,
+                                        'users' => $singleuser->name,
+                                        'type' => ucfirst($this->input->post('type')),
+                                        'message' => $this->input->post('sms_message'),
+                                        'year' => date('Y'),
+                                        'senderusertypeID' => $this->session->userdata('usertypeID'),
+                                        'senderID' => $this->session->userdata('loginuserID')
+                                    );
+                                    $this->mailandsms_m->insert_mailandsms($array);
+                                    redirect(base_url('mailandsms/index'));
+                                } else {
+                                    $this->session->set_flashdata('error', $retmess);
+                                    redirect(base_url("mailandsms/add"));
+                                }
+                            } else {
+                                $this->session->set_flashdata('error', $this->lang->line('mailandsms_notfound_error'));
+                                redirect(base_url('mailandsms/add'));
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
 			$this->data["email"] = 1;
 			$this->data["sms"] = 0;
 			$this->data["subview"] = "mailandsms/add";

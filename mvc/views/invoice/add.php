@@ -17,78 +17,80 @@
                 <form class="form-horizontal" role="form" method="post">
 
                     <?php
-                        if(form_error('classesID'))
-                            echo "<div class='form-group has-error' >";
-                        else
-                            echo "<div class='form-group' >";
+                    if (!$this->data['referrer'] == 'bulk'){
+                    if (form_error('classesID'))
+                        echo "<div class='form-group has-error' >";
+                    else
+                        echo "<div class='form-group' >";
                     ?>
-                        <label for="classesID" class="col-sm-2 control-label">
-                            <?=$this->lang->line("invoice_classesID")?>
-                        </label>
-                        <div class="col-sm-6">
+                    <label for="classesID" class="col-sm-2 control-label">
+                        <?= $this->lang->line("invoice_classesID") ?>
+                    </label>
+                    <div class="col-sm-6">
 
-                            <?php
-                                $array = array('0' => $this->lang->line("invoice_select_classes"));
-                                foreach ($classes as $classa) {
-                                    $array[$classa->classesID] = $classa->classes;
-                                }
-                                echo form_dropdown("classesID", $array, set_value("classesID"), "id='classesID' class='form-control select2'");
-                            ?>
-                        </div>
-                        <span class="col-sm-4 control-label">
+                        <?php
+                        $array = array('0' => $this->lang->line("invoice_select_classes"));
+                        foreach ($classes as $classa) {
+                            $array[$classa->classesID] = $classa->classes;
+                        }
+                        echo form_dropdown("classesID", $array, set_value("classesID"), "id='classesID' class='form-control select2'");
+                        ?>
+                    </div>
+                    <span class="col-sm-4 control-label">
                             <?php echo form_error('classesID'); ?>
                         </span>
-                    </div>
+            </div>
 
-                    <?php
-                        if(form_error('studentID'))
-                            echo "<div class='form-group has-error' >";
-                        else
-                            echo "<div class='form-group' >";
-                    ?>
-                        <label for="studentID" class="col-sm-2 control-label">
-                            <?=$this->lang->line("invoice_studentID")?>
-                        </label>
-                        <div class="col-sm-6">
+            <?php
+            if (form_error('studentID'))
+                echo "<div class='form-group has-error' >";
+            else
+                echo "<div class='form-group' >";
+            ?>
+            <label for="studentID" class="col-sm-2 control-label">
+                <?= $this->lang->line("invoice_studentID") ?>
+            </label>
+            <div class="col-sm-6">
 
-                            <?php
+                <?php
 
-                                $array = $array = array('0' => $this->lang->line("invoice_select_student"));
-                                if($students != "empty") {
-                                    foreach ($students as $student) {
-                                        $array[$student->studentID] = $student->name;
-                                    }
-                                }
+                $array = $array = array('0' => $this->lang->line("invoice_select_student"));
+                if ($students != "empty") {
+                    foreach ($students as $student) {
+                        $array[$student->studentID] = $student->name;
+                    }
+                }
 
-                                $stID = 0;
-                                if($studentID == 0) {
-                                    $stID = 0;
-                                } else {
-                                    $stID = $studentID;
-                                }
+                $stID = 0;
+                if ($studentID == 0) {
+                    $stID = 0;
+                } else {
+                    $stID = $studentID;
+                }
 
-                                echo form_dropdown("studentID", $array, set_value("studentID", $stID), "id='studentID' class='form-control select2'");
-                            ?>
-                        </div>
-                        <span class="col-sm-4 control-label">
-                            <?php echo form_error('studentID'); ?>
-                        </span>
-                    </div>
-
-                    <?php
-                        if(form_error('feetype'))
-                            echo "<div class='form-group has-error' >";
-                        else
-                            echo "<div class='form-group' >";
-                    ?>
-                        <label for="feetype" class="col-sm-2 control-label">
-                            <?=$this->lang->line("invoice_feetype")?>
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="feetype" name="feetype" value="<?=set_value('feetype')?>" >
-                        </div>
-                        <span class="col-sm-4 control-label">
+                echo form_dropdown("studentID", $array, set_value("studentID", $stID), "id='studentID' class='form-control select2'");
+                ?>
+            </div>
+            <span class="col-sm-4 control-label">
+                            <?php echo form_error('studentID');
+                            echo '</span>
+        </div>';
+                            } ?>
+                <?php
+                if (form_error('feetype'))
+                    echo "<div class='form-group has-error' >";
+                else
+                    echo "<div class='form-group' >";
+                ?>
+                <label for="feetype" class="col-sm-2 control-label">
+            <?= $this->lang->line("invoice_feetype") ?>
+        </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="feetype" name="feetype" value="<?= set_value('feetype') ?>">
+        </div>
+        <span class="col-sm-4 control-label">
                             <?php echo form_error('feetype'); ?>
+
                         </span>
                     </div>
 
